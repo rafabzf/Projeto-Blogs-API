@@ -1,16 +1,25 @@
 const { User } = require('../models');
 
-const userGet = async (email, password) => {
-  const validation = await User.findOne({ where: { email, password } });
+const createUser = async (
+  displayName,
+  email,
+  password,
+  image,
+) => { 
+  const emailGet = await User.findOne({ where: { email } }); 
 
-  if (!validation) return { type: '400', message: 'Invalid fields' };
+  if (emailGet) return { type: '409', message: 'User already registered' };
 
-  return {
-    type: null,
-    message: '',
-  };
+  const registered = await User.create({
+    displayName,
+    email,
+    password,
+    image,
+  });
+
+  return registered;
 };
 
 module.exports = {
-  userGet,
+  createUser,
 };
