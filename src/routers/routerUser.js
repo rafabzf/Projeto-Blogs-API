@@ -17,4 +17,6 @@ validationName, validationEmail, validationPassword, controllerUser.createUser);
 
 routes.get('/', authentication, controllerUser.all);
 
+routes.get('/:id', authentication, controllerUser.userGet);
+
 module.exports = routes;
