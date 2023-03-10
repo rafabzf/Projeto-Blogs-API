@@ -28,6 +28,20 @@ const createUser = async (req, res) => {
     .json({ token });
 };
 
+const all = async (_req, res) => {
+  try {
+    const users = await serviceUser.all();
+    return res
+      .status(200)
+      .json(users);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: error.message });
+  }
+};
+
 module.exports = {
   createUser,
+  all,
 };

@@ -20,6 +20,9 @@ const createUser = async (
   return registered;
 };
 
+const all = async () => User.findAll({ attributes: { exclude: 'password' } });
+
 module.exports = {
   createUser,
+  all,
 };
