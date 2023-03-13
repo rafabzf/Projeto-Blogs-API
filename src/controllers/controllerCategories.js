@@ -18,6 +18,15 @@ const createCategories = async (req, res) => {
   }
 };
 
+const allCategories = async (_req, res) => {
+  const all = await serviceCategories.allCategories();
+
+  return res
+    .status(200)
+    .json(all);
+};
+
 module.exports = {
   createCategories,
+  allCategories,
 };

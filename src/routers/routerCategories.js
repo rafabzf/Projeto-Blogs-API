@@ -8,4 +8,6 @@ const routes = express.Router();
 
 routes.post('/', authentication, controllerCategories.createCategories);
 
+routes.get('/', authentication, controllerCategories.allCategories);
+
 module.exports = routes;
