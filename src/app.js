@@ -8,6 +8,8 @@ const { routerUser } = require('./routers');
 
 const { routerCategories } = require('./routers');
 
+const { routerPost } = require('./routers');
+
 const app = express();
 
 // não remova ou mova esse endpoint
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use('/login', routerLogin);
 app.use('/user', routerUser);
 app.use('/categories', routerCategories);
+app.use('/post', routerPost);
 // ...
 
 // É importante exportar a constante `app`,
